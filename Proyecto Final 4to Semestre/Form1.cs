@@ -63,7 +63,6 @@ namespace Proyecto_Final_4to_Semestre
             }
         }
         #endregion
-
         
         #region BOTON PARA GUARDAR EN FORMATO CSV
         private void button1_Click(object sender, EventArgs e)
@@ -324,7 +323,49 @@ namespace Proyecto_Final_4to_Semestre
         }
         #endregion
 
+        #region Boton para leer en XML
 
+        private void btnLeerXML_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos XML (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
+            openFileDialog.Title = "Seleccionar archivo XML";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                DataTable dataTable = LeerDesdeXML(filePath);
+                if (dataTable.Rows.Count > 0)
+                {
+                    DataGridView.DataSource = dataTable;
+                }
+            }
+        }
+
+        private DataTable LeerDesdeXML(string filePath)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                // Leer el archivo XML en un DataSet
+                DataSet dataSet = new DataSet();
+                dataSet.ReadXml(filePath);
+
+                // Verificar si el DataSet tiene al menos una tabla y esta tiene al menos una fila
+                if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                {
+                    // Asignar la tabla del DataSet al DataTable
+                    dataTable = dataSet.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer archivo XML: " + ex.Message);
+            }
+            return dataTable;
+        }
+
+        #endregion 
 
         #region BOTON PARA GUARDAR EN FORMATO YAML
 
@@ -377,7 +418,6 @@ namespace Proyecto_Final_4to_Semestre
 
 
 
-
         #region BOTONES PARA MANEJAR EL TAMAÑO DE LA VENTANA
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -410,6 +450,5 @@ namespace Proyecto_Final_4to_Semestre
         }
 
        
-
     }
 }
