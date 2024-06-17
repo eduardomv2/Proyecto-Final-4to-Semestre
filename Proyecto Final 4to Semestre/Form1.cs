@@ -243,7 +243,7 @@ namespace Proyecto_Final_4to_Semestre
             {
                 string filePath = openFileDialog.FileName;
                 DataTable dataTable = LeerDesdeJSON(filePath);
-                if (dataTable.Rows.Count > 0)
+                if (dataTable != null)
                 {
                     DataGridView.DataSource = dataTable;
                 }
@@ -252,42 +252,56 @@ namespace Proyecto_Final_4to_Semestre
 
         private DataTable LeerDesdeJSON(string filePath)
         {
-            DataTable dataTable = new DataTable();
+            DataTable tempDataTable = new DataTable();
             try
             {
-                // Leer todo el contenido del archivo JSON
-                string json = File.ReadAllText(filePath);
-
-                // Deserializar el JSON a una lista de diccionarios
-                var dataList = JsonConvert.DeserializeObject<dynamic[]>(json);
-
-                // Si dataList tiene elementos
-                if (dataList.Length > 0)
+                if (File.Exists(filePath))
                 {
-                    // Agregar columnas al DataTable basado en las claves del primer diccionario
-                    foreach (var key in dataList[0].Keys)
-                    {
-                        dataTable.Columns.Add(key);
-                    }
+                    // Leer el contenido del archivo JSON
+                    string jsonContent = File.ReadAllText(filePath);
 
-                    // Agregar filas al DataTable
-                    foreach (var data in dataList)
+                    // Deserializar el JSON a una lista de objetos anónimos
+                    var dataList = JsonConvert.DeserializeObject<List<Dictionary<string, object>>>(jsonContent);
+
+                    // Verificar si dataList tiene elementos
+                    if (dataList != null && dataList.Count > 0)
                     {
-                        DataRow row = dataTable.NewRow();
-                        foreach (var key in data.Keys)
+                        // Agregar columnas al DataTable basado en las claves del primer diccionario
+                        foreach (var key in dataList[0].Keys)
                         {
-                            row[key] = data[key]?.ToString(); // Convertir valores a cadena
+                            tempDataTable.Columns.Add(key);
                         }
-                        dataTable.Rows.Add(row);
+
+                        // Agregar filas al DataTable
+                        foreach (var data in dataList)
+                        {
+                            DataRow row = tempDataTable.NewRow();
+                            foreach (var key in data.Keys)
+                            {
+                                row[key] = data[key]?.ToString(); // Convertir valores a cadena
+                            }
+                            tempDataTable.Rows.Add(row);
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show($"El archivo JSON \"{Path.GetFileName(filePath)}\" está vacío o no tiene el formato esperado.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"El archivo JSON \"{Path.GetFileName(filePath)}\" no existe.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al leer archivo JSON: " + ex.Message);
+                MessageBox.Show($"Error al leer archivo JSON \"{Path.GetFileName(filePath)}\": {ex.Message}");
             }
-            return dataTable;
+            return tempDataTable;
         }
+
+    
+    
         #endregion 
 
         #region BOTON PARA GUARDAR EN FORMATO XML
@@ -416,7 +430,67 @@ namespace Proyecto_Final_4to_Semestre
         }
         #endregion
 
+        #region Boton para Leer en YAML
+        private void btnLeerYAML_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Archivos YAML (*.yaml;*.yml)|*.yaml;*.yml|Todos los archivos (*.*)|*.*";
+            openFileDialog.Title = "Seleccionar archivo YAML";
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                DataTable dataTable = LeerDesdeYAML(filePath);
+                if (dataTable.Rows.Count > 0)
+                {
+                    DataGridView.DataSource = dataTable;
+                }
+            }
+        }
+
+        private DataTable LeerDesdeYAML(string filePath)
+        {
+            DataTable dataTable = new DataTable();
+            try
+            {
+                // Crear un deserializador YAML
+                Deserializer deserializer = new Deserializer();
+
+                // Leer el contenido del archivo YAML
+                string yamlContent = File.ReadAllText(filePath);
+
+                // Deserializar el contenido YAML a una lista de diccionarios
+                List<Dictionary<string, object>> dataList = deserializer.Deserialize<List<Dictionary<string, object>>>(yamlContent);
+
+                // Si dataList tiene elementos
+                if (dataList.Count > 0)
+                {
+                    // Agregar columnas al DataTable basado en las claves del primer diccionario
+                    foreach (var key in dataList[0].Keys)
+                    {
+                        dataTable.Columns.Add(key);
+                    }
+
+                    // Agregar filas al DataTable
+                    foreach (var data in dataList)
+                    {
+                        DataRow row = dataTable.NewRow();
+                        foreach (var key in data.Keys)
+                        {
+                            row[key] = data[key]?.ToString(); // Convertir valores a cadena
+                        }
+                        dataTable.Rows.Add(row);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer archivo YAML: " + ex.Message);
+            }
+            return dataTable;
+        }
+
+        #endregion
 
         #region BOTONES PARA MANEJAR EL TAMAÑO DE LA VENTANA
         private void button1_Click_1(object sender, EventArgs e)
@@ -449,6 +523,6 @@ namespace Proyecto_Final_4to_Semestre
 
         }
 
-       
+      
     }
 }
