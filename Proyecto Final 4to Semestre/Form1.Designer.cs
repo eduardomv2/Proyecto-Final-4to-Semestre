@@ -33,10 +33,10 @@
             this.btnGuardarCSV = new System.Windows.Forms.Button();
             this.btnGuardarJSON = new System.Windows.Forms.Button();
             this.btnGuardarXML = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnLeerXML = new System.Windows.Forms.Button();
+            this.btnLeerJSON = new System.Windows.Forms.Button();
+            this.btnLeerCSV = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -101,50 +101,50 @@
             this.btnGuardarXML.Text = "XML";
             this.btnGuardarXML.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnGuardar
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(1055, 633);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 33);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "GUARDAR";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Location = new System.Drawing.Point(1055, 633);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(100, 33);
+            this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.Text = "GUARDAR";
+            this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnLeerXML
             // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(730, 638);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 28);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "XML";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnLeerXML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLeerXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeerXML.Location = new System.Drawing.Point(730, 638);
+            this.btnLeerXML.Name = "btnLeerXML";
+            this.btnLeerXML.Size = new System.Drawing.Size(100, 28);
+            this.btnLeerXML.TabIndex = 8;
+            this.btnLeerXML.Text = "XML";
+            this.btnLeerXML.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btnLeerJSON
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(624, 638);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 28);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "JSON";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnLeerJSON.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLeerJSON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeerJSON.Location = new System.Drawing.Point(624, 638);
+            this.btnLeerJSON.Name = "btnLeerJSON";
+            this.btnLeerJSON.Size = new System.Drawing.Size(100, 28);
+            this.btnLeerJSON.TabIndex = 7;
+            this.btnLeerJSON.Text = "JSON";
+            this.btnLeerJSON.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // btnLeerCSV
             // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(518, 638);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(100, 28);
-            this.button8.TabIndex = 6;
-            this.button8.Text = "CSV";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btnLeerCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnLeerCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeerCSV.Location = new System.Drawing.Point(518, 638);
+            this.btnLeerCSV.Name = "btnLeerCSV";
+            this.btnLeerCSV.Size = new System.Drawing.Size(100, 28);
+            this.btnLeerCSV.TabIndex = 6;
+            this.btnLeerCSV.Text = "CSV";
+            this.btnLeerCSV.UseVisualStyleBackColor = true;
+            this.btnLeerCSV.Click += new System.EventHandler(this.button8_Click);
             // 
             // label1
             // 
@@ -236,10 +236,10 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnLeerXML);
+            this.Controls.Add(this.btnLeerJSON);
+            this.Controls.Add(this.btnLeerCSV);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnGuardarXML);
             this.Controls.Add(this.btnGuardarJSON);
             this.Controls.Add(this.btnGuardarCSV);
@@ -263,10 +263,10 @@
         private System.Windows.Forms.Button btnGuardarCSV;
         private System.Windows.Forms.Button btnGuardarJSON;
         private System.Windows.Forms.Button btnGuardarXML;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnLeerXML;
+        private System.Windows.Forms.Button btnLeerJSON;
+        private System.Windows.Forms.Button btnLeerCSV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
