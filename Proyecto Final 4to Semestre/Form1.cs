@@ -20,50 +20,58 @@ namespace Proyecto_Final_4to_Semestre
     {
 
         private string connectionString = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+        private DataTable dataTable;
+        private BindingSource bindingSource;
+        private SqlDataAdapter dataAdapter;
+        
+
 
         public Form1()
         {
             InitializeComponent();
+           
+            InitializeDataGridView();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-          LoadData();
+            LoadData();
+
+
         }
 
-       
+        private void InitializeDataGridView()
+        {
+            bindingSource = new BindingSource();
+            DataGridView.DataSource = bindingSource;
+
+        }
+
+
+
         #region Metodo para cargar los datos de la base de datos en el DataGridView
         private void LoadData()
         {
-            // Consulta SQL para obtener todos los registros de una tabla 
-            string query = "SELECT * FROM spotify_songs";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                try
+                dataTable = new DataTable();
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    // Crear un adaptador de datos
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-
-                    // Crear un DataTable para almacenar los datos (local)
-                    DataTable dataTable = new DataTable("spotify_songs"); // Asignar nombre al DataTable
-
-                    // Llenar el DataTable con los datos del adaptador
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM spotify_songs", connection);
                     dataAdapter.Fill(dataTable);
+                }
 
-                    // Asignar el DataTable como la fuente de datos del DataGridView
-                    DataGridView.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    // Mostrar mensaje de error en caso de que ocurra alguna excepción
-                    MessageBox.Show("Error al cargar los datos: " + ex.Message);
-                }
+                // Enlazar el DataTable con el DataGridView
+                DataGridView.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos desde la base de datos: " + ex.Message);
             }
         }
         #endregion
-        
+
         #region BOTON PARA GUARDAR EN FORMATO CSV
         private void button1_Click(object sender, EventArgs e)
         {
@@ -300,9 +308,9 @@ namespace Proyecto_Final_4to_Semestre
             return tempDataTable;
         }
 
-    
-    
-        #endregion 
+
+
+        #endregion
 
         #region BOTON PARA GUARDAR EN FORMATO XML
 
@@ -523,6 +531,150 @@ namespace Proyecto_Final_4to_Semestre
 
         }
 
-      
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener el DataTable actual desde el DataSource del DataGridView
+                DataTable dataTable = (DataTable)DataGridView.DataSource;
+
+                if (dataTable != null)
+                {
+                    using (SqlConnection connection = new SqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // Crear un SqlDataAdapter con la consulta SELECT y la conexión
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM spotify_songs", connection);
+
+                        // Definir el comando SELECT para el SqlDataAdapter
+                        SqlCommand selectCommand = new SqlCommand("SELECT * FROM spotify_songs", connection);
+                        dataAdapter.SelectCommand = selectCommand;
+
+                        // Definir el comando UPDATE para el SqlDataAdapter
+                        SqlCommand updateCommand = new SqlCommand(
+                            "UPDATE spotify_songs SET " +
+                            "track_name = @track_name, " +
+                            "track_artist = @track_artist, " +
+                            "track_popularity = @track_popularity, " +
+                            "track_album_id = @track_album_id, " +
+                            "track_album_name = @track_album_name, " +
+                            "track_album_release_date = @track_album_release_date, " +
+                            "playlist_name = @playlist_name, " +
+                            "playlist_id = @playlist_id, " +
+                            "playlist_genre = @playlist_genre, " +
+                            "playlist_subgenre = @playlist_subgenre, " +
+                            "danceability = @danceability, " +
+                            "energy = @energy, " +
+                            "[key] = @key, " +
+                            "loudness = @loudness, " +
+                            "mode = @mode, " +
+                            "speechiness = @speechiness, " +
+                            "acousticness = @acousticness, " +
+                            "instrumentalness = @instrumentalness, " +
+                            "liveness = @liveness, " +
+                            "valence = @valence, " +
+                            "tempo = @tempo, " +
+                            "duration_ms = @duration_ms " +
+                            "WHERE track_id = @track_id", connection);
+
+                        // Definir los parámetros para el comando UPDATE
+                        updateCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
+                        updateCommand.Parameters.Add("@track_name", SqlDbType.VarChar, -1, "track_name"); // Para varchar(MAX) usar -1
+                        updateCommand.Parameters.Add("@track_artist", SqlDbType.VarChar, -1, "track_artist");
+                        updateCommand.Parameters.Add("@track_popularity", SqlDbType.TinyInt, 1, "track_popularity");
+                        updateCommand.Parameters.Add("@track_album_id", SqlDbType.NVarChar, 50, "track_album_id");
+                        updateCommand.Parameters.Add("@track_album_name", SqlDbType.VarChar, -1, "track_album_name");
+                        updateCommand.Parameters.Add("@track_album_release_date", SqlDbType.DateTime2, 7, "track_album_release_date");
+                        updateCommand.Parameters.Add("@playlist_name", SqlDbType.VarChar, -1, "playlist_name");
+                        updateCommand.Parameters.Add("@playlist_id", SqlDbType.NVarChar, 50, "playlist_id");
+                        updateCommand.Parameters.Add("@playlist_genre", SqlDbType.NVarChar, 50, "playlist_genre");
+                        updateCommand.Parameters.Add("@playlist_subgenre", SqlDbType.NVarChar, 50, "playlist_subgenre");
+                        updateCommand.Parameters.Add("@danceability", SqlDbType.Float, 8, "danceability");
+                        updateCommand.Parameters.Add("@energy", SqlDbType.Float, 8, "energy");
+                        updateCommand.Parameters.Add("@key", SqlDbType.TinyInt, 1, "key");
+                        updateCommand.Parameters.Add("@loudness", SqlDbType.Float, 8, "loudness");
+                        updateCommand.Parameters.Add("@mode", SqlDbType.Bit, 1, "mode");
+                        updateCommand.Parameters.Add("@speechiness", SqlDbType.Float, 8, "speechiness");
+                        updateCommand.Parameters.Add("@acousticness", SqlDbType.Float, 8, "acousticness");
+                        updateCommand.Parameters.Add("@instrumentalness", SqlDbType.Float, 8, "instrumentalness");
+                        updateCommand.Parameters.Add("@liveness", SqlDbType.Float, 8, "liveness");
+                        updateCommand.Parameters.Add("@valence", SqlDbType.Float, 8, "valence");
+                        updateCommand.Parameters.Add("@tempo", SqlDbType.Float, 8, "tempo");
+                        updateCommand.Parameters.Add("@duration_ms", SqlDbType.Int, 4, "duration_ms");
+
+                        dataAdapter.UpdateCommand = updateCommand;
+
+                        // Definir el comando DELETE para el SqlDataAdapter
+                        SqlCommand deleteCommand = new SqlCommand(
+                            "DELETE FROM spotify_songs WHERE track_id = @track_id", connection);
+
+                        // Definir los parámetros para el comando DELETE
+                        deleteCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
+
+                        dataAdapter.DeleteCommand = deleteCommand;
+
+                        // Actualizar la base de datos con los cambios realizados en el DataTable
+                        dataAdapter.Update(dataTable);
+
+                        // Confirmación de cambios guardados
+                        MessageBox.Show("Cambios guardados correctamente en la base de datos.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay datos para guardar.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar cambios en la base de datos: " + ex.Message);
+            }
+        }
+
+        private void DataGridView_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            // Eliminar la fila de la base de datos
+            DataRowView rowView = (DataRowView)e.Row.DataBoundItem;
+            DataRow row = rowView.Row;
+            row.Delete();
+        }
+
+        private void DataGridView_RowValidating(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            // Manejar la inserción o actualización de una fila en el DataGridView
+            DataGridViewRow dataGridViewRow = DataGridView.Rows[e.RowIndex];
+
+            // Verificar si es una nueva fila o una fila existente
+            if (dataGridViewRow.IsNewRow) return;
+
+            // Actualizar la fila en el DataTable
+            DataRowView rowView = (DataRowView)dataGridViewRow.DataBoundItem;
+            DataRow row = rowView.Row;
+            row["track_id"] = dataGridViewRow.Cells["track_id"].Value;
+            row["track_name"] = dataGridViewRow.Cells["track_name"].Value;
+            row["track_artist"] = dataGridViewRow.Cells["track_artist"].Value;
+            row["track_popularity"] = dataGridViewRow.Cells["track_popularity"].Value;
+            row["track_album_id"] = dataGridViewRow.Cells["track_album_id"].Value;
+            row["track_album_name"] = dataGridViewRow.Cells["track_album_name"].Value;
+            row["track_album_release_date"] = dataGridViewRow.Cells["track_album_release_date"].Value;
+            row["playlist_name"] = dataGridViewRow.Cells["playlist_name"].Value;
+            row["playlist_id"] = dataGridViewRow.Cells["playlist_id"].Value;
+            row["playlist_genre"] = dataGridViewRow.Cells["playlist_genre"].Value;
+            row["playlist_subgenre"] = dataGridViewRow.Cells["playlist_subgenre"].Value;
+            row["danceability"] = dataGridViewRow.Cells["danceability"].Value;
+            row["energy"] = dataGridViewRow.Cells["energy"].Value;
+            row["key"] = dataGridViewRow.Cells["key"].Value;
+            row["loudness"] = dataGridViewRow.Cells["loudness"].Value;
+            row["mode"] = dataGridViewRow.Cells["mode"].Value;
+            row["speechiness"] = dataGridViewRow.Cells["speechiness"].Value;
+            row["acousticness"] = dataGridViewRow.Cells["acousticness"].Value;
+            row["instrumentalness"] = dataGridViewRow.Cells["instrumentalness"].Value;
+            row["liveness"] = dataGridViewRow.Cells["liveness"].Value;
+            row["valence"] = dataGridViewRow.Cells["valence"].Value;
+            row["tempo"] = dataGridViewRow.Cells["tempo"].Value;
+            row["duration_ms"] = dataGridViewRow.Cells["duration_ms"].Value;
+        }
     }
 }
+

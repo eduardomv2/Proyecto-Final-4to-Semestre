@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.DataGridView = new System.Windows.Forms.DataGridView();
             this.btnGuardarCSV = new System.Windows.Forms.Button();
@@ -52,21 +52,22 @@
             // 
             // DataGridView
             // 
+            this.DataGridView.AllowUserToOrderColumns = true;
             this.DataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Tai Le", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridView.Location = new System.Drawing.Point(12, 37);
             this.DataGridView.Name = "DataGridView";
-            this.DataGridView.Size = new System.Drawing.Size(1368, 534);
+            this.DataGridView.Size = new System.Drawing.Size(1356, 534);
             this.DataGridView.TabIndex = 0;
             this.DataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -75,7 +76,7 @@
             this.btnGuardarCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarCSV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarCSV.Location = new System.Drawing.Point(59, 638);
+            this.btnGuardarCSV.Location = new System.Drawing.Point(53, 638);
             this.btnGuardarCSV.Name = "btnGuardarCSV";
             this.btnGuardarCSV.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarCSV.TabIndex = 1;
@@ -88,7 +89,7 @@
             this.btnGuardarJSON.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarJSON.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarJSON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarJSON.Location = new System.Drawing.Point(165, 638);
+            this.btnGuardarJSON.Location = new System.Drawing.Point(159, 638);
             this.btnGuardarJSON.Name = "btnGuardarJSON";
             this.btnGuardarJSON.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarJSON.TabIndex = 2;
@@ -101,7 +102,7 @@
             this.btnGuardarXML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarXML.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarXML.Location = new System.Drawing.Point(271, 638);
+            this.btnGuardarXML.Location = new System.Drawing.Point(265, 638);
             this.btnGuardarXML.Name = "btnGuardarXML";
             this.btnGuardarXML.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarXML.TabIndex = 3;
@@ -114,19 +115,20 @@
             this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Location = new System.Drawing.Point(1172, 635);
+            this.btnGuardar.Location = new System.Drawing.Point(1171, 638);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 28);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLeerXML
             // 
             this.btnLeerXML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerXML.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeerXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeerXML.Location = new System.Drawing.Point(795, 638);
+            this.btnLeerXML.Location = new System.Drawing.Point(789, 638);
             this.btnLeerXML.Name = "btnLeerXML";
             this.btnLeerXML.Size = new System.Drawing.Size(100, 28);
             this.btnLeerXML.TabIndex = 8;
@@ -139,7 +141,7 @@
             this.btnLeerJSON.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerJSON.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeerJSON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeerJSON.Location = new System.Drawing.Point(689, 638);
+            this.btnLeerJSON.Location = new System.Drawing.Point(683, 638);
             this.btnLeerJSON.Name = "btnLeerJSON";
             this.btnLeerJSON.Size = new System.Drawing.Size(100, 28);
             this.btnLeerJSON.TabIndex = 7;
@@ -152,7 +154,7 @@
             this.btnLeerCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerCSV.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeerCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeerCSV.Location = new System.Drawing.Point(583, 638);
+            this.btnLeerCSV.Location = new System.Drawing.Point(577, 638);
             this.btnLeerCSV.Name = "btnLeerCSV";
             this.btnLeerCSV.Size = new System.Drawing.Size(100, 28);
             this.btnLeerCSV.TabIndex = 6;
@@ -164,7 +166,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 575);
+            this.label1.Location = new System.Drawing.Point(6, 575);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1375, 13);
             this.label1.TabIndex = 9;
@@ -175,7 +177,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(171, 602);
+            this.label2.Location = new System.Drawing.Point(165, 602);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(196, 19);
             this.label2.TabIndex = 10;
@@ -186,7 +188,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(716, 602);
+            this.label3.Location = new System.Drawing.Point(709, 602);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(170, 19);
             this.label3.TabIndex = 11;
@@ -197,7 +199,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(1111, 602);
+            this.label4.Location = new System.Drawing.Point(1105, 602);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(219, 19);
             this.label4.TabIndex = 12;
@@ -210,7 +212,7 @@
             this.btnMaximizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMaximizar.Location = new System.Drawing.Point(1338, 10);
+            this.btnMaximizar.Location = new System.Drawing.Point(1326, 10);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(17, 15);
             this.btnMaximizar.TabIndex = 13;
@@ -224,7 +226,7 @@
             this.btnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Location = new System.Drawing.Point(1362, 10);
+            this.btnCerrar.Location = new System.Drawing.Point(1350, 10);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(17, 15);
             this.btnCerrar.TabIndex = 14;
@@ -238,7 +240,7 @@
             this.btnMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimizar.Location = new System.Drawing.Point(1313, 10);
+            this.btnMinimizar.Location = new System.Drawing.Point(1301, 10);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(17, 15);
             this.btnMinimizar.TabIndex = 15;
@@ -250,7 +252,7 @@
             this.btnGuardarYaml.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarYaml.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGuardarYaml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarYaml.Location = new System.Drawing.Point(377, 638);
+            this.btnGuardarYaml.Location = new System.Drawing.Point(371, 638);
             this.btnGuardarYaml.Name = "btnGuardarYaml";
             this.btnGuardarYaml.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarYaml.TabIndex = 16;
@@ -263,7 +265,7 @@
             this.btnLeerYAML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerYAML.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLeerYAML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeerYAML.Location = new System.Drawing.Point(901, 638);
+            this.btnLeerYAML.Location = new System.Drawing.Point(895, 638);
             this.btnLeerYAML.Name = "btnLeerYAML";
             this.btnLeerYAML.Size = new System.Drawing.Size(100, 28);
             this.btnLeerYAML.TabIndex = 17;
@@ -276,7 +278,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClientSize = new System.Drawing.Size(1392, 689);
+            this.ClientSize = new System.Drawing.Size(1380, 689);
             this.Controls.Add(this.btnLeerYAML);
             this.Controls.Add(this.btnGuardarYaml);
             this.Controls.Add(this.btnMinimizar);
