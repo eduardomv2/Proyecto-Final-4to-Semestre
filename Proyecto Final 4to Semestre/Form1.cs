@@ -535,95 +535,109 @@ namespace Proyecto_Final_4to_Semestre
         {
             try
             {
-                // Obtener el DataTable actual desde el DataSource del DataGridView
-                DataTable dataTable = (DataTable)DataGridView.DataSource;
-
-                if (dataTable != null)
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    using (SqlConnection connection = new SqlConnection(connectionString))
-                    {
-                        connection.Open();
+                    connection.Open();
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter();
 
-                        // Crear un SqlDataAdapter con la consulta SELECT y la conexión
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM spotify_songs", connection);
+                    // Configurar el comando DELETE
+                    SqlCommand deleteCommand = new SqlCommand(
+                        "DELETE FROM spotify_songs WHERE track_id = @track_id", connection);
+                    deleteCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
+                    dataAdapter.DeleteCommand = deleteCommand;
 
-                        // Definir el comando SELECT para el SqlDataAdapter
-                        SqlCommand selectCommand = new SqlCommand("SELECT * FROM spotify_songs", connection);
-                        dataAdapter.SelectCommand = selectCommand;
+                    // Configurar el comando INSERT
+                    SqlCommand insertCommand = new SqlCommand(
+                        "INSERT INTO spotify_songs (track_id, track_name, track_artist, track_popularity, " +
+                        "track_album_id, track_album_name, track_album_release_date, playlist_name, playlist_id, " +
+                        "playlist_genre, playlist_subgenre, danceability, energy, [key], loudness, mode, speechiness, " +
+                        "acousticness, instrumentalness, liveness, valence, tempo, duration_ms) " +
+                        "VALUES (@track_id, @track_name, @track_artist, @track_popularity, @track_album_id, " +
+                        "@track_album_name, @track_album_release_date, @playlist_name, @playlist_id, @playlist_genre, " +
+                        "@playlist_subgenre, @danceability, @energy, @key, @loudness, @mode, @speechiness, " +
+                        "@acousticness, @instrumentalness, @liveness, @valence, @tempo, @duration_ms); " +
+                        "SELECT * FROM spotify_songs WHERE track_id = SCOPE_IDENTITY();", connection);
+                    insertCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id").Value = DBNull.Value; // Valor generado automáticamente por la base de datos
+                    insertCommand.Parameters.Add("@track_name", SqlDbType.VarChar, -1, "track_name");
+                    insertCommand.Parameters.Add("@track_artist", SqlDbType.VarChar, -1, "track_artist");
+                    insertCommand.Parameters.Add("@track_popularity", SqlDbType.TinyInt, 1, "track_popularity");
+                    insertCommand.Parameters.Add("@track_album_id", SqlDbType.NVarChar, 50, "track_album_id");
+                    insertCommand.Parameters.Add("@track_album_name", SqlDbType.VarChar, -1, "track_album_name");
+                    insertCommand.Parameters.Add("@track_album_release_date", SqlDbType.DateTime2, 7, "track_album_release_date");
+                    insertCommand.Parameters.Add("@playlist_name", SqlDbType.VarChar, -1, "playlist_name");
+                    insertCommand.Parameters.Add("@playlist_id", SqlDbType.NVarChar, 50, "playlist_id");
+                    insertCommand.Parameters.Add("@playlist_genre", SqlDbType.NVarChar, 50, "playlist_genre");
+                    insertCommand.Parameters.Add("@playlist_subgenre", SqlDbType.NVarChar, 50, "playlist_subgenre");
+                    insertCommand.Parameters.Add("@danceability", SqlDbType.Float, 8, "danceability");
+                    insertCommand.Parameters.Add("@energy", SqlDbType.Float, 8, "energy");
+                    insertCommand.Parameters.Add("@key", SqlDbType.TinyInt, 1, "key");
+                    insertCommand.Parameters.Add("@loudness", SqlDbType.Float, 8, "loudness");
+                    insertCommand.Parameters.Add("@mode", SqlDbType.Bit, 1, "mode");
+                    insertCommand.Parameters.Add("@speechiness", SqlDbType.Float, 8, "speechiness");
+                    insertCommand.Parameters.Add("@acousticness", SqlDbType.Float, 8, "acousticness");
+                    insertCommand.Parameters.Add("@instrumentalness", SqlDbType.Float, 8, "instrumentalness");
+                    insertCommand.Parameters.Add("@liveness", SqlDbType.Float, 8, "liveness");
+                    insertCommand.Parameters.Add("@valence", SqlDbType.Float, 8, "valence");
+                    insertCommand.Parameters.Add("@tempo", SqlDbType.Float, 8, "tempo");
+                    insertCommand.Parameters.Add("@duration_ms", SqlDbType.Int, 4, "duration_ms");
+                    dataAdapter.InsertCommand = insertCommand;
 
-                        // Definir el comando UPDATE para el SqlDataAdapter
-                        SqlCommand updateCommand = new SqlCommand(
-                            "UPDATE spotify_songs SET " +
-                            "track_name = @track_name, " +
-                            "track_artist = @track_artist, " +
-                            "track_popularity = @track_popularity, " +
-                            "track_album_id = @track_album_id, " +
-                            "track_album_name = @track_album_name, " +
-                            "track_album_release_date = @track_album_release_date, " +
-                            "playlist_name = @playlist_name, " +
-                            "playlist_id = @playlist_id, " +
-                            "playlist_genre = @playlist_genre, " +
-                            "playlist_subgenre = @playlist_subgenre, " +
-                            "danceability = @danceability, " +
-                            "energy = @energy, " +
-                            "[key] = @key, " +
-                            "loudness = @loudness, " +
-                            "mode = @mode, " +
-                            "speechiness = @speechiness, " +
-                            "acousticness = @acousticness, " +
-                            "instrumentalness = @instrumentalness, " +
-                            "liveness = @liveness, " +
-                            "valence = @valence, " +
-                            "tempo = @tempo, " +
-                            "duration_ms = @duration_ms " +
-                            "WHERE track_id = @track_id", connection);
+                    // Configurar el comando UPDATE
+                    SqlCommand updateCommand = new SqlCommand(
+                        "UPDATE spotify_songs SET " +
+                        "track_name = @track_name, " +
+                        "track_artist = @track_artist, " +
+                        "track_popularity = @track_popularity, " +
+                        "track_album_id = @track_album_id, " +
+                        "track_album_name = @track_album_name, " +
+                        "track_album_release_date = @track_album_release_date, " +
+                        "playlist_name = @playlist_name, " +
+                        "playlist_id = @playlist_id, " +
+                        "playlist_genre = @playlist_genre, " +
+                        "playlist_subgenre = @playlist_subgenre, " +
+                        "danceability = @danceability, " +
+                        "energy = @energy, " +
+                        "[key] = @key, " +
+                        "loudness = @loudness, " +
+                        "mode = @mode, " +
+                        "speechiness = @speechiness, " +
+                        "acousticness = @acousticness, " +
+                        "instrumentalness = @instrumentalness, " +
+                        "liveness = @liveness, " +
+                        "valence = @valence, " +
+                        "tempo = @tempo, " +
+                        "duration_ms = @duration_ms " +
+                        "WHERE track_id = @track_id", connection);
+                    updateCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
+                    updateCommand.Parameters.Add("@track_name", SqlDbType.VarChar, -1, "track_name");
+                    updateCommand.Parameters.Add("@track_artist", SqlDbType.VarChar, -1, "track_artist");
+                    updateCommand.Parameters.Add("@track_popularity", SqlDbType.TinyInt, 1, "track_popularity");
+                    updateCommand.Parameters.Add("@track_album_id", SqlDbType.NVarChar, 50, "track_album_id");
+                    updateCommand.Parameters.Add("@track_album_name", SqlDbType.VarChar, -1, "track_album_name");
+                    updateCommand.Parameters.Add("@track_album_release_date", SqlDbType.DateTime2, 7, "track_album_release_date");
+                    updateCommand.Parameters.Add("@playlist_name", SqlDbType.VarChar, -1, "playlist_name");
+                    updateCommand.Parameters.Add("@playlist_id", SqlDbType.NVarChar, 50, "playlist_id");
+                    updateCommand.Parameters.Add("@playlist_genre", SqlDbType.NVarChar, 50, "playlist_genre");
+                    updateCommand.Parameters.Add("@playlist_subgenre", SqlDbType.NVarChar, 50, "playlist_subgenre");
+                    updateCommand.Parameters.Add("@danceability", SqlDbType.Float, 8, "danceability");
+                    updateCommand.Parameters.Add("@energy", SqlDbType.Float, 8, "energy");
+                    updateCommand.Parameters.Add("@key", SqlDbType.TinyInt, 1, "key");
+                    updateCommand.Parameters.Add("@loudness", SqlDbType.Float, 8, "loudness");
+                    updateCommand.Parameters.Add("@mode", SqlDbType.Bit, 1, "mode");
+                    updateCommand.Parameters.Add("@speechiness", SqlDbType.Float, 8, "speechiness");
+                    updateCommand.Parameters.Add("@acousticness", SqlDbType.Float, 8, "acousticness");
+                    updateCommand.Parameters.Add("@instrumentalness", SqlDbType.Float, 8, "instrumentalness");
+                    updateCommand.Parameters.Add("@liveness", SqlDbType.Float, 8, "liveness");
+                    updateCommand.Parameters.Add("@valence", SqlDbType.Float, 8, "valence");
+                    updateCommand.Parameters.Add("@tempo", SqlDbType.Float, 8, "tempo");
+                    updateCommand.Parameters.Add("@duration_ms", SqlDbType.Int, 4, "duration_ms");
+                    dataAdapter.UpdateCommand = updateCommand;
 
-                        // Definir los parámetros para el comando UPDATE
-                        updateCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
-                        updateCommand.Parameters.Add("@track_name", SqlDbType.VarChar, -1, "track_name"); // Para varchar(MAX) usar -1
-                        updateCommand.Parameters.Add("@track_artist", SqlDbType.VarChar, -1, "track_artist");
-                        updateCommand.Parameters.Add("@track_popularity", SqlDbType.TinyInt, 1, "track_popularity");
-                        updateCommand.Parameters.Add("@track_album_id", SqlDbType.NVarChar, 50, "track_album_id");
-                        updateCommand.Parameters.Add("@track_album_name", SqlDbType.VarChar, -1, "track_album_name");
-                        updateCommand.Parameters.Add("@track_album_release_date", SqlDbType.DateTime2, 7, "track_album_release_date");
-                        updateCommand.Parameters.Add("@playlist_name", SqlDbType.VarChar, -1, "playlist_name");
-                        updateCommand.Parameters.Add("@playlist_id", SqlDbType.NVarChar, 50, "playlist_id");
-                        updateCommand.Parameters.Add("@playlist_genre", SqlDbType.NVarChar, 50, "playlist_genre");
-                        updateCommand.Parameters.Add("@playlist_subgenre", SqlDbType.NVarChar, 50, "playlist_subgenre");
-                        updateCommand.Parameters.Add("@danceability", SqlDbType.Float, 8, "danceability");
-                        updateCommand.Parameters.Add("@energy", SqlDbType.Float, 8, "energy");
-                        updateCommand.Parameters.Add("@key", SqlDbType.TinyInt, 1, "key");
-                        updateCommand.Parameters.Add("@loudness", SqlDbType.Float, 8, "loudness");
-                        updateCommand.Parameters.Add("@mode", SqlDbType.Bit, 1, "mode");
-                        updateCommand.Parameters.Add("@speechiness", SqlDbType.Float, 8, "speechiness");
-                        updateCommand.Parameters.Add("@acousticness", SqlDbType.Float, 8, "acousticness");
-                        updateCommand.Parameters.Add("@instrumentalness", SqlDbType.Float, 8, "instrumentalness");
-                        updateCommand.Parameters.Add("@liveness", SqlDbType.Float, 8, "liveness");
-                        updateCommand.Parameters.Add("@valence", SqlDbType.Float, 8, "valence");
-                        updateCommand.Parameters.Add("@tempo", SqlDbType.Float, 8, "tempo");
-                        updateCommand.Parameters.Add("@duration_ms", SqlDbType.Int, 4, "duration_ms");
+                    // Actualizar la base de datos con los cambios realizados en el DataTable
+                    dataAdapter.Update(dataTable);
 
-                        dataAdapter.UpdateCommand = updateCommand;
-
-                        // Definir el comando DELETE para el SqlDataAdapter
-                        SqlCommand deleteCommand = new SqlCommand(
-                            "DELETE FROM spotify_songs WHERE track_id = @track_id", connection);
-
-                        // Definir los parámetros para el comando DELETE
-                        deleteCommand.Parameters.Add("@track_id", SqlDbType.NVarChar, 50, "track_id");
-
-                        dataAdapter.DeleteCommand = deleteCommand;
-
-                        // Actualizar la base de datos con los cambios realizados en el DataTable
-                        dataAdapter.Update(dataTable);
-
-                        // Confirmación de cambios guardados
-                        MessageBox.Show("Cambios guardados correctamente en la base de datos.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("No hay datos para guardar.");
+                    // Confirmación de cambios guardados
+                    MessageBox.Show("Cambios guardados correctamente en la base de datos.");
                 }
             }
             catch (Exception ex)
