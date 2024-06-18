@@ -35,7 +35,27 @@ namespace Proyecto_Final_4to_Semestre
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            DataGridView.RowHeadersVisible = false; // Oculta la columna de encabezado de filas
+
+            // Configurar colores de fondo y de texto de las filas
+            DataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240); // Color de fondo opaco
+            DataGridView.RowsDefaultCellStyle.ForeColor = Color.Black; // Color de texto
+
+            // Configurar colores de fondo y de texto de las celdas
+            DataGridView.DefaultCellStyle.BackColor = Color.FromArgb(220, 220, 220); // Color de fondo opaco
+            DataGridView.DefaultCellStyle.ForeColor = Color.Black; // Color de texto
+                
+            // Configurar color de fondo de las filas seleccionadas
+            DataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(173, 216, 230); // Color de selección opaco
+            DataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+
+
+
             LoadData();
+
+
 
 
         }
@@ -126,7 +146,7 @@ namespace Proyecto_Final_4to_Semestre
                         }
                         else
                         {
-                            // Manejar celdas vacías (opcional)
+                            // Manejar celdas vacías
                             filaDatos.Append("[CELDA VACÍA],");
                         }
                     }
