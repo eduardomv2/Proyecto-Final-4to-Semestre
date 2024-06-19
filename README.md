@@ -1,5 +1,5 @@
 
-NuGet usados:
+ NuGet usados:
   * Newtonsoft.Json 13.0.3
   * YamlDotNet 15.3.0
 
@@ -14,7 +14,29 @@ NuGet usados:
 <H3>Diseño</H3> 
 <img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/b4ab98be-739f-43fc-adc5-5be1327065ce" width="120%" height="auto" /> 
 
+
+<H3>Guardar en CSV</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/32d67435-c56c-4662-8974-69717161889e
+
 <H3>Guardar en JSON</H3>
 
-https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/c3232f45-659c-447b-9025-4189b5a0713a
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/8e64332a-84e4-4ffb-9d90-84f75bd19e3f
+
+<H3>Guardar en XML</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a1d251fd-f2d8-4305-801d-0986d4a46c8f
+
+
+<H3>Guardar en YAML</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/d4a281e9-47ae-42c8-bae7-eb6e04570039
+
+
+<H3>Lectura de Formatos</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/bafc29f1-07a8-4c7b-86e5-10dfd9c0096c
+
+
+
 
