@@ -3,13 +3,12 @@ NuGet usados:
   * Newtonsoft.Json 13.0.3
   * YamlDotNet 15.3.0
 
-## Base de datos: 
+#### 📑Base de datos: 
+
 - [Spotify Songs](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs)
-
-- https://www.kaggle.com/datasets/stealthtechnologies/regression-dataset-for-household-income-analysis
-- https://www.kaggle.com/datasets/darrylljk/worlds-best-universities-qs-rankings-2025
-- https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books
-
+- [Regression Dataset for Household Income Analysis](https://www.kaggle.com/datasets/stealthtechnologies/regression-dataset-for-household-income-analysis)
+- [QS University Rankings 2025](https://www.kaggle.com/datasets/darrylljk/worlds-best-universities-qs-rankings-2025)
+- [Amazon Bestselling Books](https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books)
 -----------------------------
 
 
