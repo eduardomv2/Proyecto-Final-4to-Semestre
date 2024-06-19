@@ -11,7 +11,7 @@
 - [Amazon Bestselling Books](https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books)
 -----------------------------
 
-<H3>Diseño</H3> 
+<H3>Diseño - Al entrar muestra los datos de la DB</H3> 
 <img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a6d7039b-883e-447c-bcf6-7819552ea244" width="120%" height="auto" /> 
 
 
@@ -37,6 +37,9 @@ https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/d4a281
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/bafc29f1-07a8-4c7b-86e5-10dfd9c0096c
 
+<H3>Guardar en SQL</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/3edf435c-f5b5-44e5-9b73-9773d40f174b
 
 
 
