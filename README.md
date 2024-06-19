@@ -5,17 +5,20 @@
 
 #### 📑Ejemplos que usé para Base de datos: 
 
-- [Spotify Songs](https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs)
-- [Regression Dataset for Household Income Analysis](https://www.kaggle.com/datasets/stealthtechnologies/regression-dataset-for-household-income-analysis)
-- [QS University Rankings 2025](https://www.kaggle.com/datasets/darrylljk/worlds-best-universities-qs-rankings-2025)
-- [Amazon Bestselling Books](https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books)
+| DB | Links |
+|-----:|-----------|
+|    Spotify Songs| https://www.kaggle.com/datasets/joebeachcapital/30000-spotify-songs|
+|    Regression Dataset for Household Income Analysis| https://www.kaggle.com/datasets/stealthtechnologies/regression-dataset-for-household-income-analysis    |
+|    QS University Rankings 2025| https://www.kaggle.com/datasets/darrylljk/worlds-best-universities-qs-rankings-2025      |
+|   Amazon Bestselling Books| https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books    |
+
 -----------------------------
 
 <H3>Diseño - Al entrar muestra los datos de SQL</H3> 
 <img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a6d7039b-883e-447c-bcf6-7819552ea244" width="120%" height="auto" /> 
 
 -------
-
+ 
 ## Guardar en CSV
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/32d67435-c56c-4662-8974-69717161889e
@@ -28,11 +31,9 @@ https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/8e6433
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a1d251fd-f2d8-4305-801d-0986d4a46c8f
 
-
 ## Guardar en YAML
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/d4a281e9-47ae-42c8-bae7-eb6e04570039
-
 
 ## Lectura de Formatos
 
