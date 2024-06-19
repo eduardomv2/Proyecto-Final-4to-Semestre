@@ -11,7 +11,10 @@ NuGet usados:
 - [Amazon Bestselling Books](https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books)
 -----------------------------
 
-
-
- 
+<H3>Diseño</H3> 
 <img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/b4ab98be-739f-43fc-adc5-5be1327065ce" width="120%" height="auto" /> 
+
+<H3>Guardar en JSON</H3>
+
+https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/c3232f45-659c-447b-9025-4189b5a0713a
+
