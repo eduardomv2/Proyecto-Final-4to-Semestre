@@ -37,7 +37,7 @@ https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/d4a281
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/bafc29f1-07a8-4c7b-86e5-10dfd9c0096c
 
-<H3>Guardar en SQL</H3>
+<H3>Modificar en SQL</H3>
 
 https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/3edf435c-f5b5-44e5-9b73-9773d40f174b
 
