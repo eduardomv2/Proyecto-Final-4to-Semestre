@@ -76,11 +76,13 @@
             // 
             this.btnGuardarCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarCSV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarCSV.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardarCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarCSV.Location = new System.Drawing.Point(84, 638);
             this.btnGuardarCSV.Name = "btnGuardarCSV";
             this.btnGuardarCSV.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarCSV.TabIndex = 1;
+            this.btnGuardarCSV.TabStop = false;
             this.btnGuardarCSV.Text = "CSV";
             this.btnGuardarCSV.UseVisualStyleBackColor = true;
             this.btnGuardarCSV.Click += new System.EventHandler(this.button1_Click);
@@ -89,11 +91,13 @@
             // 
             this.btnGuardarJSON.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarJSON.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarJSON.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardarJSON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarJSON.Location = new System.Drawing.Point(190, 638);
             this.btnGuardarJSON.Name = "btnGuardarJSON";
             this.btnGuardarJSON.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarJSON.TabIndex = 2;
+            this.btnGuardarJSON.TabStop = false;
             this.btnGuardarJSON.Text = "JSON";
             this.btnGuardarJSON.UseVisualStyleBackColor = true;
             this.btnGuardarJSON.Click += new System.EventHandler(this.btnGuardarJSON_Click);
@@ -102,11 +106,13 @@
             // 
             this.btnGuardarXML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarXML.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarXML.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardarXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarXML.Location = new System.Drawing.Point(296, 638);
             this.btnGuardarXML.Name = "btnGuardarXML";
             this.btnGuardarXML.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarXML.TabIndex = 3;
+            this.btnGuardarXML.TabStop = false;
             this.btnGuardarXML.Text = "XML";
             this.btnGuardarXML.UseVisualStyleBackColor = true;
             this.btnGuardarXML.Click += new System.EventHandler(this.btnGuardarXML_Click);
@@ -115,11 +121,13 @@
             // 
             this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Location = new System.Drawing.Point(1202, 638);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(100, 28);
             this.btnGuardar.TabIndex = 5;
+            this.btnGuardar.TabStop = false;
             this.btnGuardar.Text = "GUARDAR";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -128,11 +136,13 @@
             // 
             this.btnLeerXML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerXML.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeerXML.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLeerXML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeerXML.Location = new System.Drawing.Point(820, 638);
             this.btnLeerXML.Name = "btnLeerXML";
             this.btnLeerXML.Size = new System.Drawing.Size(100, 28);
             this.btnLeerXML.TabIndex = 8;
+            this.btnLeerXML.TabStop = false;
             this.btnLeerXML.Text = "XML";
             this.btnLeerXML.UseVisualStyleBackColor = true;
             this.btnLeerXML.Click += new System.EventHandler(this.btnLeerXML_Click);
@@ -141,11 +151,13 @@
             // 
             this.btnLeerJSON.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerJSON.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeerJSON.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLeerJSON.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeerJSON.Location = new System.Drawing.Point(714, 638);
             this.btnLeerJSON.Name = "btnLeerJSON";
             this.btnLeerJSON.Size = new System.Drawing.Size(100, 28);
             this.btnLeerJSON.TabIndex = 7;
+            this.btnLeerJSON.TabStop = false;
             this.btnLeerJSON.Text = "JSON";
             this.btnLeerJSON.UseVisualStyleBackColor = true;
             this.btnLeerJSON.Click += new System.EventHandler(this.btnLeerJSON_Click);
@@ -154,11 +166,13 @@
             // 
             this.btnLeerCSV.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerCSV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeerCSV.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLeerCSV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeerCSV.Location = new System.Drawing.Point(608, 638);
             this.btnLeerCSV.Name = "btnLeerCSV";
             this.btnLeerCSV.Size = new System.Drawing.Size(100, 28);
             this.btnLeerCSV.TabIndex = 6;
+            this.btnLeerCSV.TabStop = false;
             this.btnLeerCSV.Text = "CSV";
             this.btnLeerCSV.UseVisualStyleBackColor = true;
             this.btnLeerCSV.Click += new System.EventHandler(this.button8_Click);
@@ -252,11 +266,13 @@
             // 
             this.btnGuardarYaml.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnGuardarYaml.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarYaml.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnGuardarYaml.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarYaml.Location = new System.Drawing.Point(402, 638);
             this.btnGuardarYaml.Name = "btnGuardarYaml";
             this.btnGuardarYaml.Size = new System.Drawing.Size(100, 28);
             this.btnGuardarYaml.TabIndex = 16;
+            this.btnGuardarYaml.TabStop = false;
             this.btnGuardarYaml.Text = "YAML";
             this.btnGuardarYaml.UseVisualStyleBackColor = true;
             this.btnGuardarYaml.Click += new System.EventHandler(this.btnGuardarYaml_Click);
@@ -265,11 +281,13 @@
             // 
             this.btnLeerYAML.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnLeerYAML.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLeerYAML.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnLeerYAML.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeerYAML.Location = new System.Drawing.Point(926, 638);
             this.btnLeerYAML.Name = "btnLeerYAML";
             this.btnLeerYAML.Size = new System.Drawing.Size(100, 28);
             this.btnLeerYAML.TabIndex = 17;
+            this.btnLeerYAML.TabStop = false;
             this.btnLeerYAML.Text = "YAML";
             this.btnLeerYAML.UseVisualStyleBackColor = true;
             this.btnLeerYAML.Click += new System.EventHandler(this.btnLeerYAML_Click);

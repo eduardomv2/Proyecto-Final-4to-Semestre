@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO;
@@ -28,8 +26,7 @@ namespace Proyecto_Final_4to_Semestre
 
         public Form1()
         {
-            InitializeComponent();
-           
+            InitializeComponent();   
             InitializeDataGridView();
         }
 
@@ -50,12 +47,7 @@ namespace Proyecto_Final_4to_Semestre
             DataGridView.DefaultCellStyle.SelectionBackColor = Color.FromArgb(173, 216, 230); // Color de selección opaco
             DataGridView.DefaultCellStyle.SelectionForeColor = Color.Black;
 
-
-
-
             LoadData();
-
-
 
 
         }
@@ -350,16 +342,29 @@ namespace Proyecto_Final_4to_Semestre
                     // Obtener el DataTable desde el DataSource del DataGridView
                     DataTable dataTable = (DataTable)DataGridView.DataSource;
 
-                    // Guardar el DataTable como XML en el archivo seleccionado por el usuario
-                    string filePath = saveFileDialog1.FileName;
-                    dataTable.WriteXml(filePath, XmlWriteMode.WriteSchema);
+                    if (dataTable != null)
+                    {
+                        // Asignar un nombre al DataTable si no tiene uno
+                        if (string.IsNullOrEmpty(dataTable.TableName))
+                        {
+                            dataTable.TableName = "spotify_songs";
+                        }
 
-                    MessageBox.Show("Datos guardados en formato XML correctamente en:\n" + filePath);
+                        // Guardar el DataTable como XML en el archivo seleccionado por el usuario
+                        string filePath = saveFileDialog1.FileName;
+                        dataTable.WriteXml(filePath, XmlWriteMode.WriteSchema);
+
+                        MessageBox.Show("Datos guardados en formato XML correctamente en:\n" + filePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No hay datos en el DataGridView para guardar.");
+                    }
                 }
                 catch (Exception ex)
                 {
                     // Manejar errores durante el proceso de guardado
-                    MessageBox.Show("Error al guardar el archivo XML: " + ex.Message);
+                    MessageBox.Show("Error al guardar el archivo XML: " + ex.Message + "\n" + ex.StackTrace);
                 }
             }
         }
