@@ -60,7 +60,6 @@ namespace Proyecto_Final_4to_Semestre
         }
 
 
-
         #region Metodo para cargar los datos de la base de datos en el DataGridView
         private void LoadData()
         {
@@ -114,7 +113,7 @@ namespace Proyecto_Final_4to_Semestre
 
         private void GuardarEnCSV(string rutaArchivo)
         {
-            // Crear un objeto StreamWriter para escribir en el archivo CSV
+            
             using (StreamWriter writer = new StreamWriter(rutaArchivo))
             {
                 // Escribir la primera fila con los encabezados de las columnas
