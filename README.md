@@ -12,7 +12,7 @@
 -----------------------------
 
 <H3>Diseño</H3> 
-<img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/b4ab98be-739f-43fc-adc5-5be1327065ce" width="120%" height="auto" /> 
+<img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a6d7039b-883e-447c-bcf6-7819552ea244" width="120%" height="auto" /> 
 
 
 <H3>Guardar en CSV</H3>
