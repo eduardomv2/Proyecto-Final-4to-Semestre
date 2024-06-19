@@ -11,7 +11,7 @@
 - [Amazon Bestselling Books](https://www.kaggle.com/datasets/khushikhushikhushi/amazon-bestselling-books)
 -----------------------------
 
-<H3>Diseño - Al entrar muestra los datos de la DB</H3> 
+<H3>Diseño - Al entrar muestra los datos de SQL</H3> 
 <img alt="IMG" src="https://github.com/eduardomv2/Proyecto-Final-4to-Semestre/assets/87501782/a6d7039b-883e-447c-bcf6-7819552ea244" width="120%" height="auto" /> 
 
 
